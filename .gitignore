@@ -1,0 +1,15 @@
+# Node.js
+backend/api/node_modules/
+backend/api/dist/
+backend/api/.env
+
+# IDE
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
