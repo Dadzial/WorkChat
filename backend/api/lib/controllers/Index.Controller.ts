@@ -1,8 +1,9 @@
 import Controller from "../interfaces/controller";
-import {Router} from "express";
+import {Router, Request, Response} from "express";
+import path from "path";
 
 class IndexController implements Controller {
-    public path = '/*';
+    public path = '/';
     public router = Router();
 
     constructor() {
@@ -10,7 +11,11 @@ class IndexController implements Controller {
     }
 
     private initializeRoutes() {
-        // this.router.get(this.path, this.renderIndex);
+        this.router.get(this.path, this.serveFrontend);
+    }
+
+    private serveFrontend(req: Request, res: Response) {
+        res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
     }
 }
 export default IndexController;
