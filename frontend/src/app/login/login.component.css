@@ -1,0 +1,138 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/backgrounds/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 44, 44, 0.9);
+  z-index: 1;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  z-index: 11;
+}
+
+.icon-wrapper mat-icon {
+  font-size: 48px;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2196f3;
+}
+.main-container h1 {
+  color: #0b0909;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -2rem;
+}
+
+.login-form {
+  background-color: #ffffff;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem 3rem 3rem;
+  border-radius: 1rem;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  gap: 1.5rem;
+  width: 300px;
+  max-width: 90%;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group mat-icon {
+  position: absolute;
+  left: 12px;
+  color: #666;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+button[mat-raised-button] {
+  width: 40%;
+  margin: auto;
+  color: #fff;
+  background-color: black;
+  border-radius: 1.2rem;
+  padding: 0.75rem 1rem;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 600px) {
+  .login-form {
+    padding: 1.5rem 2rem 2rem 2rem;
+    width: 70%;
+    transform: scale(1);
+  }
+
+  .login-form h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-group input {
+    font-size: 0.9rem;
+  }
+
+  button[mat-raised-button] {
+    width: 60%;
+    padding: 0.5rem 1rem;
+  }
+
+  .icon-wrapper mat-icon {
+    font-size: 36px;
+  }
+}
+
+
