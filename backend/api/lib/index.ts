@@ -1,5 +1,4 @@
 import App from "./app";
-import IndexController from "./controllers/Index.Controller";
 import UserController from "./controllers/User.Controller";
 
 const app = new App([]);
@@ -16,7 +15,6 @@ app.app.use((req, res, next) => {
 
 const controllers = [
     new UserController(),
-    new IndexController()
 ];
 
 controllers.forEach((controller) => {
