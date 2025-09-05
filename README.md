@@ -17,7 +17,7 @@ A lightweight and efficient chat application designed for work organization and 
 - **Backend**: Node.js, Express, TypeScript
 - **Database**: MongoDB with Mongoose ODM
 - **Containerization**: Docker
-- **Styling**: CSS3, Angular Material, PrimeNG
+- **Styling**: css, Angular Material
 
 ## 🚀 Getting Started
 
@@ -97,13 +97,6 @@ WorkChat/
 └── Dockerfile           # Docker configuration
 ```
 
-## 🤝 Contributing
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📝 License
 
