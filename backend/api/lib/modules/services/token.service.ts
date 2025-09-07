@@ -7,7 +7,7 @@ class TokenService {
         const access = 'auth';
         const userData = {
             userId: user.id,
-            name: user.email,
+            name: user.username,
             role: user.role,
             isAdmin: user.isAdmin,
             access: access
@@ -44,6 +44,19 @@ class TokenService {
         try {
             const result = await TokenModel.deleteOne({ userId: userId });
 
+            if (result.deletedCount === 0) {
+                throw new Error('Wystąpił błąd podczas usuwania danych');
+            }
+            return result;
+        } catch (error) {
+            console.error('Error while removing token:', error);
+            throw new Error('Error while removing token');
+        }
+    }
+
+    public async clear() {
+        try {
+            const result = await TokenModel.deleteMany();
             if (result.deletedCount === 0) {
                 throw new Error('Wystąpił błąd podczas usuwania danych');
             }

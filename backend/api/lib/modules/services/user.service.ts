@@ -39,6 +39,8 @@ class UserService {
         }
     }
 
+
+
     public async remove(userId: string) {
         try {
             const result = await UserSchema.findByIdAndDelete(userId);
@@ -49,6 +51,10 @@ class UserService {
             console.error('Error removing user:', error);
             throw new Error('Error removing user');
         }
+    }
+
+    public async setActive(userId: string, status: boolean) {
+        return UserSchema.findByIdAndUpdate(userId, { active: status }, { new: true });
     }
 }
 

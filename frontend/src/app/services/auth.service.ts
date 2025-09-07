@@ -42,4 +42,31 @@ export class AuthService {
       return null;
     }
   }
+  getDisplayName(): string | null {
+    const token = this.getToken();
+    if (!token) return null;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.name || null;
+    } catch (e) {
+      console.error('Error parsing token:', e);
+      return null;
+    }
+  }
+
+  isTokenExpired(token?: string): boolean {
+    const t = token || this.getToken();
+    if (!t) return true;
+
+    try {
+      const payload = JSON.parse(atob(t.split('.')[1]));
+      if (!payload.exp) return true;
+      const now = Math.floor(Date.now() / 1000);
+      return payload.exp < now;
+    } catch (e) {
+      console.error('Error decoding token:', e);
+      return true;
+    }
+  }
+
 }

@@ -7,7 +7,6 @@ class PasswordService {
             const record = await PasswordSchema.findOne({ userId });
             if (!record) return false;
 
-
             const isMatch = await bcrypt.compare(plainPassword, record.password);
             return isMatch;
         } catch (error) {
