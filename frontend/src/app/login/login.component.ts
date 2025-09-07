@@ -1,16 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { NgOptimizedImage } from '@angular/common';
+import {NgIf, NgOptimizedImage} from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButton } from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatIconModule, MatButton, HttpClientModule],
+  imports: [FormsModule, MatIconModule, MatButton, HttpClientModule, NgIf, MatIconButton],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+
+  constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) {}
 
   ngOnInit(): void {
     const token = this.authService.getToken();
@@ -45,5 +47,12 @@ export class LoginComponent implements OnInit, OnDestroy {
         console.error('Error:', err);
       }
     });
+  }
+
+  toggleDarkMode() {
+    this.themeService.toggleDarkMode();
+  }
+  get isDarkMode(): boolean {
+    return this.themeService.isDarkMode();
   }
 }

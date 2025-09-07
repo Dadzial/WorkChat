@@ -19,7 +19,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(44, 44, 44, 0.9);
+  background-color: var(--bg-color);
+  opacity: 0.8;
   z-index: 1;
 }
 
@@ -41,7 +42,7 @@
   color: #2196f3;
 }
 .main-container h1 {
-  color: #0b0909;
+  color: var(--h1-color);
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
@@ -49,7 +50,7 @@
 }
 
 .login-form {
-  background-color: #ffffff;
+  background-color: var(--login-form-color);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -71,7 +72,7 @@
 .input-group mat-icon {
   position: absolute;
   left: 12px;
-  color: #666;
+  color: var(--input-group-icon-color);
   font-size: 24px;
   pointer-events: none;
 }
@@ -79,35 +80,65 @@
 .input-group input {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 3rem;
-  border: 1px solid #ccc;
+  border:none;
   border-radius: 0.5rem;
   font-size: 1rem;
 }
 
+.username-input{
+  background-color: var(--input-background-color);
+  color:var(--input-text-color);
+  outline: none;
+}
+
+.password-input{
+  background-color: var(--input-background-color);
+  color:var(--input-text-color);
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-background-color) inset !important;
+  -webkit-text-fill-color: var(--input-group-icon-color) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
 button[mat-raised-button] {
   width: 40%;
   margin: auto;
-  color: #fff;
-  background-color: black;
+  color: var(--button-text-color);
+  background-color: var(--button-color);
   border-radius: 1.2rem;
   padding: 0.75rem 1rem;
 }
 .footer {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 1rem;
-  color: #fff;
-  font-size: 0.9rem;
-  z-index: 11;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--footer-color);
+  z-index: 11;
 }
 
-.footer-icon {
+.footer span,
+.footer img {
+  display: inline-block;
+}
+.footer-icon{
   width: 24px;
   height: 24px;
+}
+
+.dark-mode-toggle[mat-icon-button] {
+  background-color: var(--dark-mode-toggle);
+  color:var(--dark-mode-toggle-text);
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 600px) {
@@ -134,5 +165,6 @@ button[mat-raised-button] {
     font-size: 36px;
   }
 }
+
 
 

@@ -5,4 +5,33 @@ html , body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --bg-color: #121212;
+  --h1-color: #0b0909;
+  --login-form-color: #ffffff;
+  --input-group-icon-color: #ffffff;
+  --input-background-color: #0b0909;
+  --input-text-color: #ffffff;
+  --button-color: #2196f3;
+  --button-text-color: #fff;
+  --footer-color: #fff;
+  --dark-mode-toggle:#ffffff;
+  --dark-mode-toggle-text:#000000;
+
+}
+.dark-theme {
+  --bg-color: #2c2c2c;
+  --h1-color: #ffffff;
+  --login-form-color: #1e1e1e;
+  --input-group-icon-color: #000000;
+  --input-background-color: #ffffff;
+  --input-text-color: #000000;
+  --button-color: #2196f3;
+  --button-text-color: #ffffff;
+  --footer-color: #aaaaaa;
+  --dark-mode-toggle:#000000;
+  --dark-mode-toggle-text:#ffffff;
+}
+
+
 

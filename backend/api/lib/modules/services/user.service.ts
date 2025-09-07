@@ -39,8 +39,6 @@ class UserService {
         }
     }
 
-
-
     public async remove(userId: string) {
         try {
             const result = await UserSchema.findByIdAndDelete(userId);

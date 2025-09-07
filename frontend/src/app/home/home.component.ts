@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { LogoutService } from '../services/logout.service';
 import { AuthService } from '../services/auth.service';
 import { GetAllService } from '../services/get-all.service';
+import {AnnouncementsComponent} from '../announcements/announcements.component';
 
 export interface User {
   username: string;
@@ -21,7 +22,7 @@ export interface UsersStatus {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatToolbarModule, MatIconModule, MatButtonModule, NgIf, NgForOf],
+  imports: [MatToolbarModule, MatIconModule, MatButtonModule, NgIf, NgForOf, AnnouncementsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -58,7 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('Component has been destroyed');
   }
 
-  toggleUsersMenu(): void {
+  public toggleUsersMenu(): void {
     this.showUsersMenu = !this.showUsersMenu;
 
     if (this.showUsersMenu) {
@@ -67,7 +68,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
           this.onlineUsers = res.online;
           this.offlineUsers = res.offline;
           console.log('Online:', this.onlineUsers, 'Offline:', this.offlineUsers);
-
         },
         error: (err) => {
           console.error('Error fetching users:', err);
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent): void {
+  public onClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
     if (this.showUsersMenu &&
       !target.closest('.users-menu') &&
@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  onLogout(): void {
+  public onLogout(): void {
     const userId = this.authService.getUserId();
     if (!userId) {
       this.clearAndRedirect();
@@ -106,3 +106,4 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate(['']);
   }
 }
+

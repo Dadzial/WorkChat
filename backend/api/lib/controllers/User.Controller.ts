@@ -21,9 +21,9 @@ class UserController implements Controller {
 
     private initializeRoutes() {
         this.router.get(`${this.path}/get/all` , admin , this.getAllUsers)
-        this.router.get(`${this.path}/all/status` ,auth ,this.getAllUsersStatus)
+        this.router.get(`${this.path}/all/status`  ,this.getAllUsersStatus)
         this.router.post(`${this.path}/auth`, this.authenticate);
-        this.router.post(`${this.path}/create`,admin , this.createNewOrUpdate);
+        this.router.post(`${this.path}/create`, admin , this.createNewOrUpdate);
         this.router.delete(`${this.path}/logout/:userId`, auth , this.removeHashSession);
         this.router.delete(`${this.path}/delete/:userId`, admin , this.removeUser);
         this.router.delete(`${this.path}/tokens/clear`,admin ,this.clearTokens)
