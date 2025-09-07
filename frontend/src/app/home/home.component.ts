@@ -71,7 +71,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         },
         error: (err) => {
           console.error('Error fetching users:', err);
-
           this.onlineUsers = [];
           this.offlineUsers = [];
         }
